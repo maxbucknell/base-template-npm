@@ -7,39 +7,30 @@
     {squarespace-headers}
   </head>
   <body id="{squarespace.page-id}" class="{squarespace.page-classes}">
-
-    <header>
+    <div class="container">
       {.section website}
-        <h1>
-          <a href="/" data-content-field="site-title">
-            {.section logoImageUrl}
-             <img src="{logoImageUrl}?format=original" alt="{siteTitle}" />
-            {.or}
+        <header class="site-header">
+          <a href="/">
+            <h1 data-content-field="site-title" class="site-title">
               {siteTitle}
-            {.end}
+            </h1>
           </a>
-        </h1>
-        
-        {.section siteTagLine}
-          <p>{@}</p>
-        {.end}
-
+          <squarespace:navigation navigationId="primary-nav" template="navigation" />
+        </header>
       {.end}
 
-      <squarespace:navigation navigationId="primary-nav" template="navigation" />
-    </header>
 
-    <main data-content-field="main-content">
-      {squarespace.main-content}
-    </main>
+      <main data-content-field="main-content" id="main">
+        {squarespace.main-content}
+      </main>
 
-    <footer>
-      <squarespace:block-field id="footer-blocks" columns="12" />
-    </footer>
+      <footer>
+        <squarespace:block-field id="footer-blocks" columns="12" />
+      </footer>
 
-    <script type="text/javascript" src="/scripts/site-bundle.js"></script>
+      <script type="text/javascript" src="/scripts/site-bundle.js"></script>
 
-    {squarespace-footers}
-    
+      {squarespace-footers}
+    </div>
   </body>
-</html> 
+</html>

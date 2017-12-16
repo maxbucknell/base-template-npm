@@ -1,0 +1,143 @@
+:root,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    .base-font;
+    font-style: normal;
+    line-height: @lead;
+}
+
+p {
+    margin: 0;
+}
+
+p + p {
+    text-indent: @lead;
+}
+
+a {
+    color: @tintColor;
+
+    &:visited {
+        color: @tintColor;
+    }
+
+    &:active {
+        color: @tintColor;
+    }
+}
+
+h1 {
+    .a-heading();
+    text-align: end;
+    margin: 2 * @lead 0 @lead;
+}
+
+@media (min-width: 47em) {
+    h1 {
+        margin: 0;
+    }
+}
+
+h2 {
+    .b-heading();
+    margin: @lead 0;
+}
+
+h3 {
+    float: left;
+    margin: 0;
+    font-weight: bold;
+
+    &::after {
+        display: inline;
+        content: ":\00a0";
+    }
+}
+
+ul,
+ol {
+    margin: @lead 0;
+    padding-left: 0;
+    list-style-type: none;
+
+    & > li::before {
+        font-size: 0.7em;
+        line-height: 1;
+        font-style: italic;
+        display: inline-block;
+        content: "\02022";
+        width: 1.7em;
+        margin-left: -2em;
+        margin-right: 0.3em;
+        text-align: end;
+    }
+}
+
+li > :first-child {
+    display: inline;
+}
+
+ol {
+    counter-reset: listylist;
+}
+
+ol > li::before {
+    counter-increment: listylist;
+    content: counter(listylist,lower-roman);
+}
+
+blockquote {
+    font-style: italic;
+    margin: @lead 0;
+}
+
+span.math {
+    font-size: 13px;
+}
+
+code {
+    .code;
+    white-space: pre;
+    margin: 0;
+    overflow-x: auto;
+    line-height: 1;
+
+    figure & {
+        display: block;
+        line-height: @lead;
+    }
+}
+
+figure {
+    // Add one lead padding, avoid sodding margin collapse.
+    margin: (@lead - 1px) 0 !important;
+    border: 1px solid transparent;
+    border-width: 1px 0;
+}
+
+pre {
+    margin: 0;
+    white-space: nowrap;
+}
+
+figcaption {
+    .caption;
+}
+
+.article-time {
+    text-align: center;
+    font-style: italic;
+    font-size: 0.7em;
+    line-height: 26px;
+    display: block;
+}
+
+@media (min-width: 47em) {
+    .article-time {
+        text-align: end;
+    }
+}

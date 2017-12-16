@@ -1,0 +1,51 @@
+// tweak: {"type" : "color", "title" : "Tint Color"}
+@tintColor: #03c79e;
+
+
+@borderColor: tint(@tintColor, 80%);
+
+// tweak: {"type" : "font", "title" : "Base Font"}
+.base-font {
+    font-family: adobe-caslon-pro;
+    font-weight: normal;
+    font-size: 17px;
+}
+
+// tweak: {"type" : "value", "title" : "Base Line Height", "js": true,"min": 20, "max": 50, "step": 1}",
+@lead: 26px;
+
+// tweak: {"type" : "font", "title" : "A Heading Font"}
+.a-heading {
+    font-family: futura-pt;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 19px;
+}
+
+// tweak: {"type" : "font", "title" : "B Heading Font"}
+.b-heading {
+    font-family: adobe-caslon-pro;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 18px;
+}
+
+// tweak: {"type" : "font", "title" : "C Heading Font"}
+.c-heading {
+    font-style: normal;
+    font-weight: 700;
+}
+
+// tweak: {"type" : "font", "title" : "Code Font"}
+.code {
+    font-family: "Fira Mono";
+    font-size: 13px;
+}
+
+// tweak: {"type" : "font", "title" : "Caption"}
+.caption {
+    font-family: futura-pt;
+    font-variant: small-caps;
+    text-transform: lowercase;
+    font-size: 17px;
+}

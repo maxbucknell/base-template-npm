@@ -1,0 +1,29 @@
+{.section item}
+  <article id="post-{id}" class="{@|item-classes}" data-item-id="{id}">
+    <header class="sqs-col-12">
+      <h1 class="title sqs-block" data-content-field="title">
+        {.passthrough?}
+          <a href="{sourceUrl}" target="_blank">{title}</a>
+        {.or}
+          <a href="{fullUrl}">{title}</a>
+        {.end}
+      </h1>
+    </header>
+
+    <main>
+      {body}
+    </main>
+
+    {postItemInjectCode}
+
+    <aside>
+      <p class="meta">
+        <time datetime="{addedOn|date %F}" class="article-time">{addedOn|date %d %B, %Y}</time>
+        {.section sourceUrl}
+          <a href="{@}" class="source" target="_blank">Source</a>.
+        {.end}
+      </p>
+    </aside>
+  </article>
+{.end}
+

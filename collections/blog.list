@@ -1,0 +1,32 @@
+{.repeated section items}
+  <article id="post-{id}" class="{@|item-classes}" data-item-id="{id}">
+
+    <h1 class="title" data-content-field="title">
+      {.passthrough?}
+        <a href="{sourceUrl}" target="_blank" rel="external">{title}</a>
+      {.or}
+        <a href="{fullUrl}">{title}</a>
+      {.end}
+    </h1>
+
+    <time datetime="{addedOn|date %F}" class="article-time">{addedOn|date %d %B, %Y}</time>
+  </article>
+  {.or}
+    No blog posts yet.
+{.end}
+
+{.if pagination}
+  <nav>
+    {.if pagination.prevPage}
+      <a href="{pagination.prevPageUrl}">Newer</a>
+    {.or}
+      <a class="disabled">Newer</a>
+    {.end}
+
+    {.if pagination.nextPage}
+      <a href="{pagination.nextPageUrl}">Older</a>
+    {.or}
+      <a class="disabled">Older</a>
+    {.end}
+  </nav>
+{.end}
