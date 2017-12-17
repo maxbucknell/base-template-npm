@@ -7,10 +7,6 @@
     padding: 0;
 }
 
-.sqs-block-markdown .sqs-block-content *:first-child {
-    margin-top: @lead;
-}
-
 [class*=sqs-col] .sqs-block {
     padding-left: 2em;;
     padding-right: 2em;
@@ -103,7 +99,7 @@ nav a:hover {
 @media (min-width: 47em) {
     .site-header {
         display: grid;
-        grid-template-columns: ~"1fr 2fr";
+        grid-template-columns: ~"14em 30em";
         grid-column-gap: 1em;
         padding: 0;
 
@@ -173,13 +169,14 @@ nav a:hover {
         article {
             margin-top: 2 * @lead;
             display: grid;
-            grid-template-columns: ~"1fr 2fr";
+            grid-template-columns: ~"14em 30em";
             grid-column-gap: 1em;
             grid-template-rows: @lead ~"1fr";
             grid-auto-flow: column;
 
             main {
                 grid-row: span 2;
+                width: 30em;
             }
 
             aside {
@@ -197,11 +194,15 @@ nav a:hover {
 
     [id^=page] {
         display: grid;
-        grid-template-columns: ~"1fr 2fr";
+        grid-template-columns: ~"14em 30em";
         grid-column-gap: 1em;
 
         .row {
             grid-column: 2;
         }
+    }
+
+    .title {
+        transform: translateY(-4px);
     }
 }

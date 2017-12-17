@@ -1,8 +1,14 @@
+// Colors from:
+// https://color.adobe.com/create/color-wheel/?base=2&rule=Triad&selected=1&name=My%20Color%20Theme&mode=rgb&rgbvalues=0.055281308503300784,0.4803921568627451,0.39146590797132136,0.7764181887160727,0.09401583078792651,0.8169934640522876,0.011764705882352941,0.7803921568627451,0.6196078431372549,0.580392156862745,0.45928555001178045,0.06678884619174298,0.4803921568627451,0.37448811681078636,0.031261700660163566&swatchOrder=0,1,2,3,4
+
 // tweak: {"type" : "color", "title" : "Tint Color"}
 @tintColor: #03c79e;
 
+// tweak: {"type": "color", "title" : "Alternate Color"}
+@alternateColor: #c618d0;
 
 @borderColor: tint(@tintColor, 80%);
+@codeBackgroundColor: fade(@tintColor, 10%);
 
 // tweak: {"type" : "font", "title" : "Base Font"}
 .base-font {

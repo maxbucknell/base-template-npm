@@ -101,14 +101,26 @@ span.math {
 
 code {
     .code;
-    white-space: pre;
-    margin: 0;
-    overflow-x: auto;
-    line-height: 1;
 
     figure & {
         display: block;
         line-height: @lead;
+        background: @codeBackgroundColor;
+        margin: 0 -2rem;
+        padding: (@lead / 2) 2rem;
+        white-space: pre;
+        overflow-x: auto;
+        line-height: 1;
+    }
+}
+
+@media (min-width: 47em) {
+    figure code {
+        margin-left: -1em;
+        margin-right: -1em;
+        padding-left: 1em;
+        padding-right: 1em;
+        max-width: calc(~"100% + 2em");
     }
 }
 

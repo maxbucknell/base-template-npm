@@ -27,8 +27,9 @@ function renderMaths () {
   var display = document.querySelectorAll('code.math');
   var inline = document.querySelectorAll('span.math');
 
-  display.forEach(renderMath.bind(null, true));
   inline.forEach(renderMath.bind(null, false));
+  display.forEach(renderMath.bind(null, true));
+  display.forEach(leadify);
 }
 
 function renderMath (isDisplayMode, el) {
@@ -40,4 +41,16 @@ function renderMath (isDisplayMode, el) {
     console.error(e);
     el.innerHTML = mathText;
   }
+}
+
+function leadify (el) {
+  var height = el.clientHeight;
+  var lineHeight = parseInt(core.Tweak.getValue('lead'), 10);
+  var difference = lineHeight - (height % lineHeight);
+
+  var lowerMargin = Math.floor(difference / 2);
+  var upperMargin = Math.ceil(difference / 2);
+
+  el.style.marginBottom = lowerMargin + 'px';
+  el.style.marginTop = upperMargin + 'px';
 }
