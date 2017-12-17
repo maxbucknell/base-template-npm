@@ -1,4 +1,3 @@
-
 // Use the sqs-core module to access core Squarespace
 // functionality, like Lifecycle and ImageLoader. For
 // full documentation, go to:
@@ -6,11 +5,21 @@
 // http://github.com/squarespace/squarespace-core
 
 var core = require('@squarespace/core');
+var Mercury = require('@squarespace/mercury');
 var katex = require('katex');
 
 window.addEventListener('DOMContentLoaded', function() {
   renderImages();
   renderMaths();
+
+  var instance = new Mercury({
+    updateMatrix: [
+      { selector: 'title', updateHTML: true },
+      { selector: 'body', updateAttrs: true },
+      { selector: '.container', updateHTML: true },
+      { selector: 'script[data-name="static-context"]', updateScript: true }
+    ]
+  });
 });
 
 function renderImages () {

@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "@squarespace/core": "^0.1.5",
+    "@squarespace/mercury": "^1.1.5",
     "katex": "^0.7.1"
   },
   "devDependencies": {
