@@ -1,42 +1,34 @@
-require('dotenv').config({silent: true});
+var webpack = require('webpack');
+var path = require('path');
 
-const webpack = require('webpack');
-const path = require('path');
-const pkg = require(__dirname + '/package.json');
+var scriptsPath = path.resolve(__dirname, 'build', 'scripts');
 
-const IS_PRODUCTION = process.env.NODE_ENV === 'production';
+var sitejs = ['./scripts/site.js'];
 
-const siteJs = ['./scripts/site.js']
+var sourceScripts = sitejs;
 
-const config = {
-  devtool: IS_PRODUCTION ? false : 'source-map',
-  entry: {
-    'scripts/site-bundle': siteJs
-  },
+var config = {
+  entry: sourceScripts,
   output: {
-    path: path.resolve(__dirname, 'build'),
-    filename: '[name].js'
+    path: scriptsPath,
+    filename: 'site-bundle.js'
+  },
+  module: {
+    loaders: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader'
+      }
+    ]
   },
   plugins: [
-    new webpack.optimize.DedupePlugin(),
-
-    new webpack.optimize.OccurenceOrderPlugin(),
-
-    new webpack.DefinePlugin({
-      '__DEBUG__': JSON.stringify(!IS_PRODUCTION)
-    }),
-
     new webpack.optimize.UglifyJsPlugin({
-      beautify: !IS_PRODUCTION,
-      compress: IS_PRODUCTION ? {
-        drop_console: true, // eslint-disable-line camelcase
-        warnings: false
-      } : false,
-      mangle: IS_PRODUCTION ? {
-          except: ['_'] // don't mangle lodash
-      } : false
+      output: {
+        comments: false
+      }
     })
   ]
-}
+};
 
 module.exports = config;
